@@ -2,6 +2,7 @@ import io.restassured.RestAssured;
 import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import org.apache.http.HttpStatus;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -29,4 +30,20 @@ public class GreetTest {
                 .statusCode(HttpStatus.SC_OK)
                 .body(equalTo(String.format(EXPECTED_GREET_BODY_FORMAT, name)));
     }
+
+//    @Test
+//    public void greetWithJohnNameParameterTest() {
+//        String john = "John";
+//        String johnFormat = "Your name is wonderful, congratulations %s";
+//        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
+//        given()
+//                .port(PORT)
+//                .baseUri(BASE_URI)
+//                .basePath(GREET_PATH)
+//                .param(NAME_PARAMETER, john)
+//                .get()
+//                .then()
+//                .statusCode(HttpStatus.SC_OK)
+//                .body(equalTo(String.format(johnFormat, john)));
+//    }
 }
